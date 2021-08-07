@@ -137,6 +137,16 @@ VOC_PUB_PROFILE = Profile(
     default_language="en",
     is_profile_of=["https://www.w3.org/TR/skos-reference/"]
 )
+DATAONE_PROFILE = Profile(
+    "https://dataone.org",
+    "DataONE Profile",
+    "DataONE Profile. Fork of OntDoc profile.",
+    RDF_MEDIA_TYPES + [HTML_MEDIA_TYPE, "text/markdown"],
+    HTML_MEDIA_TYPE,
+    languages=["en"],
+    default_language="en",
+    is_profile_of=["https://www.w3.org/TR/skos-reference/"]
+)
 
 # MOD_PROFILE = Profile(
 #     "http://www.isibang.ac.in/ns/mod#MetadataForOntologyDescriptionAndPublication",
@@ -153,6 +163,7 @@ PROFILES = {
     "prof": PROF_PROFILE,
     "ontdoc": ONT_DOC_PROFILE,
     "vocpub": VOC_PUB_PROFILE,
-    "nmpf": NMPF_PROFILE
+    "nmpf": NMPF_PROFILE,
+    "dataone": DATAONE_PROFILE
     # "modp": MOD_PROFILE
 }

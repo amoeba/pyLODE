@@ -33,7 +33,7 @@ RDF_SERIALIZER_MAP = {
     "text/plain": "nt",  # text/plain is the old/deprecated mimetype for n-triples
 }
 
-from .profiles import OntDoc, Prof, VocPub, NMPF, PROFILES
+from .profiles import OntDoc, Prof, VocPub, NMPF, PROFILES, DataONE
 
 
 class MakeDocco:
@@ -87,6 +87,8 @@ class MakeDocco:
             self.profile_selected = "ontdoc"
         else:
             self.profile_selected = profile
+
+        print("Profile is " + profile)
 
         # shared variables
         if input_data_file is not None:
@@ -193,6 +195,16 @@ class MakeDocco:
             )
         elif self.profile_selected == "nmpf":
             p = NMPF(
+                self.G,
+                self.source_info,
+                outputformat=self.outputformat,
+                include_css=self.include_css,
+                default_language="en",
+                use_curies_stored=self.use_curies_stored,
+                get_curies_online=self.get_curies_online
+            )
+        elif self.profile_selected == "dataone":
+            p = DataONE(
                 self.G,
                 self.source_info,
                 outputformat=self.outputformat,

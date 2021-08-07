@@ -3,7 +3,7 @@ register("json-ld", Serializer, "rdflib_jsonld.serializer", "JsonLDSerializer")
 __version__ = "2.10.0"
 
 from .common import *
-from .profiles import OntDoc, Prof, VocPub, NMPF, PROFILES, RDF_MEDIA_TYPES
+from .profiles import OntDoc, Prof, VocPub, NMPF, PROFILES, RDF_MEDIA_TYPES, DataONE
 
 __all__ = [
     "__version__",
@@ -13,5 +13,6 @@ __all__ = [
     "NMPF",
     "PROFILES",
     "RDF_MEDIA_TYPES",
-    "MakeDocco"
+    "MakeDocco",
+    "DataONE"
 ]
