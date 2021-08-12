@@ -88,8 +88,6 @@ class MakeDocco:
         else:
             self.profile_selected = profile
 
-        print("Profile is " + profile)
-
         # shared variables
         if input_data_file is not None:
             self._parse_input_data_file(input_data_file)

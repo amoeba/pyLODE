@@ -36,7 +36,6 @@ class DataONE(BaseProfile):
         self.CLASSES = collections.OrderedDict()
         self.PROPERTIES = collections.OrderedDict()
         self.NAMED_INDIVIDUALS = collections.OrderedDict()
-        print("DATAONE INIT")
 
     def _make_collection_class_html(self, col_type, col_members):
         if col_type == "owl:unionOf":
