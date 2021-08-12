@@ -545,6 +545,11 @@ class BaseProfile:
             if url is None and type(agent_node) == URIRef:
                 url = str(agent_node)
 
+        # If no name, just use the URI as the name and also the URL
+        if name is None:
+            name = str(agent_node)
+            url = str(agent_node)
+
         agent = self._make_agent_link(name, url=url, email=email)
 
         if org_name is not None:
