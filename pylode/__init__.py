@@ -1,5 +1,3 @@
-from rdflib.plugin import register, Serializer
-register("json-ld", Serializer, "rdflib_jsonld.serializer", "JsonLDSerializer")
 __version__ = "2.10.0"
 
 from .common import *
