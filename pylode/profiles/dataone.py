@@ -200,6 +200,7 @@ class DataONE(BaseProfile):
 
     def _make_fragment_uri(self, uri):
         """DataONE Profile allows fragment URIs for Classes & Properties"""
+
         if self.PROPERTIES.get(uri) or self.CLASSES.get(uri):
             if self.PROPERTIES.get(uri):
                 title = self.PROPERTIES[uri]["title"] \
@@ -222,7 +223,11 @@ class DataONE(BaseProfile):
             return self._make_formatted_uri_basic(uri)
 
     def _make_formatted_uri(self, uri, type=None):
-        link = super()._make_formatted_uri(uri)
+        if uri.startswith(self.METADATA.get("default_namespace")):
+            link = self._make_fragment_uri(uri)
+        else:
+            # URI isn't in the default namespace, so use an absolute URI
+            link = super()._make_formatted_uri_basic(uri)
 
         types = {
             "c": "class",
